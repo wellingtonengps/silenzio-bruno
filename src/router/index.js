@@ -20,7 +20,7 @@ const router = createRouter({
         {
             path: '/note',
             name: 'note',
-            component: () => import('../views/HomeView.vue'),
+            component: () => import('../views/NoteView.vue'),
             meta: {auth: true}
         },
     ]

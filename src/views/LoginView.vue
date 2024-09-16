@@ -2,6 +2,7 @@
 import http from '@/services/https.js'
 import {reactive} from "vue";
 import {useAuth} from "@/stores/auth.js"
+import {useRouter} from "vue-router";
 
 const user = reactive({
   username: "wellington.silva",
@@ -9,12 +10,15 @@ const user = reactive({
 })
 
 const auth = useAuth()
+const router = useRouter()
 
 async function handleLogin() {
   try {
     const {data} = await http.post('/authenticate/login', user);
     console.log(data)
     auth.setUser(data)
+
+    await router.push({name: 'note'});
   } catch (error) {
     console.log(error.response.data)
   }
@@ -60,14 +64,18 @@ async function handleLogin() {
   border-radius: 10px;
 }
 
-.wrapper_inputs {
+button {
+  margin-top: 20px;
+}
+
+form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   input:first-child {
     margin-bottom: 10px;
   }
-
 }
 
 .logo {

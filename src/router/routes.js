@@ -1,17 +1,21 @@
 import { useAuth } from "@/stores/auth.js";
 
 export default async function routes(to, from, next) {
-    if (to.meta?.auth) {
-        const auth = useAuth();
-        if (auth.user) {
-            const isAuthenticated = await auth.checkToken();
-            if (isAuthenticated) next({name: 'Home'});
-            else next({ name: "auth" });
+    const isAuthenticated = localStorage.getItem('user'); // Assuming 'user' contains authentication info
+
+    if (isAuthenticated) {
+        // If the user is authenticated and trying to access the login page, redirect to '/note'
+        if (to.name === 'auth') {
+            next({ name: 'note' });
         } else {
-            next({ name: "auth" });
+            next();
         }
-        console.log(to.name);
     } else {
-        next();
+        // If the route requires authentication and the user is not authenticated, redirect to '/auth'
+        if (to.meta.auth) {
+            next({ name: 'auth' });
+        } else {
+            next();
+        }
     }
 }
