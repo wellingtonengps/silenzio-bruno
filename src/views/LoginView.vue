@@ -1,38 +1,60 @@
 <script setup>
-import http from '@/services/https.js'
-import {reactive} from "vue";
-import {useAuth} from "@/stores/auth.js"
-import {useRouter} from "vue-router";
+import http from "@/services/https.js";
+import { reactive } from "vue";
+import { useAuth } from "@/stores/auth.js";
+import { useRouter } from "vue-router";
 
 const user = reactive({
   username: "wellington.silva",
   password: "wel1ing7",
-})
+  error: false,
+});
 
-const auth = useAuth()
-const router = useRouter()
+const auth = useAuth();
+const router = useRouter();
 
-async function handleLogin() {
-  try {
-    const {data} = await http.post('/authenticate/login', user);
-    console.log(data)
-    auth.setUser(data)
-
-    await router.push({name: 'note'});
-  } catch (error) {
-    console.log(error.response.data)
+function handleLogin() {
+  if (auth.checkCredential(user)) {
+    auth.setUser(user);
+    router.push({ name: "note" });
+  } else {
+    user.error = true;
   }
 }
+
+/*
+async function handleLogin() {
+  try {
+    const { data } = await http.post("/authenticate/login", user);
+    console.log(data);
+    auth.setUser(data);
+
+    await router.push({ name: "note" });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+}*/
 </script>
 
 <template>
   <div class="background">
     <div class="container">
-      <img class="logo" src="../assets/img/silenzio_bruno.png" alt="Logo">
+      <img class="logo" src="../assets/img/silenzio_bruno.png" alt="Logo" />
       <div>
         <form @submit.prevent="handleLogin">
-          <input type="text" placeholder="Usuário" v-model="user.username" id="username"/>
-          <input type="password" placeholder="Senha" v-model="user.password" id="password"/>
+          <input
+            type="text"
+            placeholder="Usuário"
+            v-model="user.username"
+            id="username"
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            v-model="user.password"
+            id="password"
+          />
+          <p v-if="user.error" class="error">Dados de acesso errado 😢​</p>
           <button type="submit">Entrar</button>
         </form>
       </div>
@@ -41,11 +63,15 @@ async function handleLogin() {
 </template>
 
 <style scoped>
+.error {
+  margin-top: 10px;
+  color: red;
+}
 .background {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/img/background.jpg');
+  background-image: url("../assets/img/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -81,5 +107,4 @@ form {
 .logo {
   width: 160px;
 }
-
 </style>
