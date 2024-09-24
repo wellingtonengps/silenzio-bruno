@@ -1,7 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
-
-// Definir as propriedades que o card aceitará
 const props = defineProps({
   cardDate: {
     type: String,
@@ -21,11 +18,11 @@ const props = defineProps({
   },
   polaroidWidth: {
     type: String,
-    default: "250px", // Valor padrão para a largura
+    default: "250px",
   },
   polaroidHeight: {
     type: String,
-    default: "300px", // Valor padrão para a altura
+    default: "300px",
   },
 });
 </script>
@@ -66,13 +63,13 @@ const props = defineProps({
 .polaroid-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Preenche o div mantendo a proporção */
+  object-fit: cover;
 }
 
 .polaroid-caption {
   text-align: center;
   padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .card-title {

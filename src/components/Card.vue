@@ -1,7 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
-
-// Definir as propriedades que o card aceitará
 const props = defineProps({
   cardDate: {
     type: String,
@@ -17,7 +14,7 @@ const props = defineProps({
   },
   cardSize: {
     type: String,
-    default: '300px', // Tamanho padrão se não for especificado
+    default: "300px",
   },
 });
 </script>
@@ -40,9 +37,9 @@ const props = defineProps({
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;   /* Previne que o card encolha em flex containers */
-  height: auto;     /* Permite que a altura se ajuste ao conteúdo */
-  overflow: hidden; /* Opcional: oculta conteúdo extra caso exceda */
+  flex-shrink: 0;
+  height: auto;
+  overflow: hidden;
   background-color: whitesmoke;
 }
 
@@ -62,11 +59,11 @@ const props = defineProps({
   font-weight: 700;
   font-size: 18px;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .card-body {
   margin-top: 12px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 </style>
