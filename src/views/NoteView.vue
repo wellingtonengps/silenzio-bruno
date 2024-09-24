@@ -3,30 +3,26 @@
     <div class="card-grid">
       <!-- Cards dispostos em grid -->
       <Card
-        cardDate="23/09/2024"
-        cardTitle="Primeira Mensagem"
-        cardBody="Conteúdo do primeiro card com propriedades diferentes. Conteúdo do primeiro card com propriedades diferentes. Conteúdo do primeiro card com propriedades diferentes."
+          card-size="360px"
+          card-date="23/09/2024"
+          cardTitle="Sobre esse site"
+          cardBody="Desde o dia que você me mandou o vídeo no tiktok, eu não parei de pensar em como faria algo para você. Queria fazer algo legal, mas a idéia nunca vinha (não sei se esse ficou legal), mas fiz de coração. Tem muita coisa para colocar, mas senti que não queria passar de hoje sem te mostrar."
       />
+      <Polaroid image-url="src/assets/img/whatsapp.jpg" card-body="Não foi aqui que começou, mas..." polaroid-width="300px"/>
+      <Polaroid image-url="src/assets/img/23_09_2024.jpg" card-body="Primeira foto que me mandou 😊"  card-date="23/06/2024"/>
+      <Polaroid image-url="src/assets/img/foto.jpg" card-body="Eu estava com cara péssima, mas foi a primeira foto que te mandei 😂😂"  card-date="23/06/2024"/>
       <Card
-        cardDate="23/09/2024"
-        cardTitle="Segunda Mensagem"
-        cardBody="Conteúdo do segundo card com propriedades diferentes."
-      />
-      <Card
-        cardDate="23/09/2024"
-        cardTitle="Terceira Mensagem"
-        cardBody="Conteúdo do terceiro card com propriedades diferentes."
-      />
-
-      <Card
-        cardDate="23/09/2024"
-        cardTitle="Terceira Mensagem"
-        cardBody="Conteúdo do terceiro card com propriedades diferentes."
+          cardDate="23/09/2024"
+          cardBody="Ainda vai ter muita coisa aqui, espere só para você ver 😁😁😁"
       />
     </div>
 
+
     <!-- Botão de logout abaixo do grid -->
     <button @click="logout" class="logout-button">Sair</button>
+    <div class="rodape">
+      <p>Feito com ❤️ para alguém que gosto muito</p>
+    </div>
   </div>
 </template>
 
@@ -35,6 +31,7 @@ import Card from "@/components/Card.vue";
 
 import { useAuth } from "@/stores/auth.js";
 import { useRouter } from "vue-router";
+import Polaroid from "@/components/Polaroid.vue";
 
 const auth = useAuth();
 const router = useRouter();
@@ -47,6 +44,9 @@ function logout() {
 
 <style scoped>
 /* Container que envolve o grid e o botão */
+.rodape{
+  margin-top: 10px;
+}
 .container {
   display: flex;
   flex-direction: column;

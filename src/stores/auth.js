@@ -7,8 +7,8 @@ export const useAuth = defineStore("auth", () => {
   const user = ref(JSON.parse(localStorage.getItem("user")));
 
   const person = {
-    username: "wellington.silva",
-    password: "wel1ing7",
+    username: "gui",
+    password: "well",
   };
 
   function setUser(userValue) {

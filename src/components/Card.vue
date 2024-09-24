@@ -15,11 +15,15 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  cardSize: {
+    type: String,
+    default: '300px', // Tamanho padrão se não for especificado
+  },
 });
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" :style="{ maxWidth: cardSize, width: cardSize }">
     <div class="card-header">
       <h2 class="card-title">{{ cardTitle }}</h2>
       <span class="card-date">{{ cardDate }}</span>
@@ -35,12 +39,16 @@ const props = defineProps({
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
-  max-width: 300px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;   /* Previne que o card encolha em flex containers */
+  height: auto;     /* Permite que a altura se ajuste ao conteúdo */
+  overflow: hidden; /* Opcional: oculta conteúdo extra caso exceda */
+  background-color: whitesmoke;
 }
 
 .card-header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -54,9 +62,11 @@ const props = defineProps({
   font-weight: 700;
   font-size: 18px;
   margin: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .card-body {
   margin-top: 12px;
+  font-family: 'Courier New', Courier, monospace;
 }
 </style>

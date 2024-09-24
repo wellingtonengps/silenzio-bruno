@@ -5,8 +5,8 @@ import { useAuth } from "@/stores/auth.js";
 import { useRouter } from "vue-router";
 
 const user = reactive({
-  username: "wellington.silva",
-  password: "wel1ing7",
+  username: "",
+  password: "",
   error: false,
 });
 
@@ -54,7 +54,7 @@ async function handleLogin() {
             v-model="user.password"
             id="password"
           />
-          <p v-if="user.error" class="error">Dados de acesso errado 😢​</p>
+          <p v-if="user.error" class="error">Eu gosto de você 😢</p>
           <button type="submit">Entrar</button>
         </form>
       </div>
