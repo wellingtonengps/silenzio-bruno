@@ -5,7 +5,7 @@
         card-size="360px"
         card-date="23/09/2024"
         cardTitle="Sobre esse site"
-        cardBody="Desde o dia que você me mandou o vídeo no tiktok, eu não parei de pensar em como faria algo para você. Queria fazer algo legal, mas a idéia nunca vinha (não sei se esse ficou legal), mas fiz de coração. Tem muita coisa para colocar, mas senti que não queria passar de hoje sem te mostrar."
+        cardBody="Teste card"
       />
       <Polaroid
         :image-url="whatsappImg"
@@ -14,12 +14,12 @@
       />
       <Polaroid
         :image-url="img23092024"
-        card-body="Primeira foto que me mandou 😊"
+        card-body="Teste card"
         card-date="23/06/2024"
       />
       <Polaroid
         :image-url="fotoImg"
-        card-body="Eu estava com cara péssima, mas foi a primeira foto que te mandei 😂😂"
+        card-body="Teste"
         card-date="23/06/2024"
       />
       <Card
@@ -30,7 +30,7 @@
 
     <button @click="logout" class="logout-button">Sair</button>
     <div class="rodape">
-      <p>Feito com ❤️ para alguém que gosto muito</p>
+      <p>Feito por Wellington</p>
     </div>
   </div>
 </template>
