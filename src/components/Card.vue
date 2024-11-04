@@ -14,17 +14,14 @@ const props = defineProps({
   },
   cardSize: {
     type: String,
-    default: "300px",
+    default: "250px",
   },
 });
 </script>
 
 <template>
   <div class="card" :style="{ maxWidth: cardSize, width: cardSize }">
-    <div class="card-header">
-      <h2 class="card-title">{{ cardTitle }}</h2>
-      <span class="card-date">{{ cardDate }}</span>
-    </div>
+    <div class="img"></div>
     <div class="card-body">
       <p>{{ cardBody }}</p>
     </div>
@@ -34,13 +31,20 @@ const props = defineProps({
 <style scoped>
 .card {
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 2px;
+  padding: 16px 16px 70px 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
-  height: auto;
+  height: 300px;
+  width: 200px;
   overflow: hidden;
   background-color: whitesmoke;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  background-color: aquamarine;
 }
 
 .card-header {
